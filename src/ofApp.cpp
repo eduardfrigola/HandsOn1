@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+    ofBackground(255);
     
     buttonWidth=200;
     buttonHeight=100;
@@ -32,9 +33,9 @@ void ofApp::setup(){
     stopstate=true;
     speed=0;
     
-    trafficLightPos=ofPoint(900, 20);
-    redLightColor=ofColor(255,0,0,50);
-    orangeLightColor=ofColor(255,145,0, 255);
+    trafficLightPos=ofPoint(ofGetWidth()-124, 20);
+    redLightColor=ofColor(255,0,0,255);
+    orangeLightColor=ofColor(255,145,0, 50);
     greenLightColor=ofColor(0,255,0, 50);
     
     
@@ -64,12 +65,18 @@ void ofApp::update(){
         kneeRPosition=ofPoint(bikerOrigin.x+70,bikerOrigin.y);
         speed=0;
         stopstate=false; //only has to run one time;
+        orangeLightColor.a=50;
+        redLightColor.a=255;
+        greenLightColor.a=50;
     }
     
     
     
     //forward movement
     if(bikerOrigin.x<=endX && play==true){
+        redLightColor.a=50;
+        orangeLightColor.a=50;
+        greenLightColor.a=255;
         bikerOrigin.x+=speed;
         speed+=0.05;
         zerotopi+=0.05;
@@ -86,18 +93,25 @@ void ofApp::update(){
         kneeLPosition.y+=-cos(zerotopi);
     }
     
-
     
-    
+    if(bikerOrigin.x>=endX-200){
+        greenLightColor.a=50;
+        orangeLightColor.a=255;
+    }
+    if(bikerOrigin.x>=endX){
+        orangeLightColor.a=50;
+        redLightColor.a=255;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    ofDrawBitmapString("Speed: "+ofToString(speed)+" px/frame", ofPoint(5,20));
+    ofDrawBitmapString("Speed: "+ofToString(speed), ofPoint(5,20));
+    ofDrawBitmapString("px/frame", ofPoint(120, 20));
     
     ofSetColor(0);
-    ofRect(900, 20, 80, 220);
+    ofRect(trafficLightPos.x, trafficLightPos.y, 80, 220);
     ofSetColor(redLightColor);
     ofCircle(trafficLightPos.x+40, trafficLightPos.y+40, 30);
     ofSetColor(orangeLightColor);
@@ -110,17 +124,10 @@ void ofApp::draw(){
     ofSetLineWidth(12);
     
     
-    
-    
-    ofSetLineWidth(12);
-    
     //floor
-    ofRect( 0, 550, ofGetWidth(),10);
+    ofSetColor(0);
+    ofRect(0, 555, ofGetWidth(),10);
 
-    
-    
-    //head
-    ofCircle(bikerOrigin.x, bikerOrigin.y-300, 30);
 
     //leftarm
     ofSetColor(bodyColor.r+30, bodyColor.g, bodyColor.b);
