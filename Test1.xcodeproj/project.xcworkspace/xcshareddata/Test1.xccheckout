@@ -10,31 +10,31 @@
 	<string>Test1</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5E01537E9B0E3EA1A7082A8B8EBF8B71CDBBD4D6</key>
-		<string>https://github.com/eduardfrigola/InteractiveSystems-course.git</string>
+		<key>D80A49A8E848AB8B6E1915BCFEDC7C186F48756B</key>
+		<string>https://github.com/eduardfrigola/HandsOn1.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Test1/Test1.xcodeproj</string>
+	<string>Test1.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5E01537E9B0E3EA1A7082A8B8EBF8B71CDBBD4D6</key>
-		<string>../../..</string>
+		<key>D80A49A8E848AB8B6E1915BCFEDC7C186F48756B</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/eduardfrigola/InteractiveSystems-course.git</string>
+	<string>https://github.com/eduardfrigola/HandsOn1.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5E01537E9B0E3EA1A7082A8B8EBF8B71CDBBD4D6</string>
+	<string>D80A49A8E848AB8B6E1915BCFEDC7C186F48756B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5E01537E9B0E3EA1A7082A8B8EBF8B71CDBBD4D6</string>
+			<string>D80A49A8E848AB8B6E1915BCFEDC7C186F48756B</string>
 			<key>IDESourceControlWCCName</key>
-			<string>InteractiveSystems-course</string>
+			<string>HandsOn1</string>
 		</dict>
 	</array>
 </dict>

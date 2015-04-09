@@ -41,6 +41,7 @@ class ofApp : public ofBaseApp{
     float zerotopi;
     
     ofImage bike;
+    ofImage field;
     
     bool stopstate;
     bool play;
@@ -55,4 +56,5 @@ class ofApp : public ofBaseApp{
     ofColor orangeLightColor;
     
     ofPoint trafficLightPos;
+    float fieldXPosition;
 };

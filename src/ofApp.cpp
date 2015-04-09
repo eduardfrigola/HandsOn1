@@ -15,6 +15,7 @@ void ofApp::setup(){
     buttonColor.b=100;
     
     bike.loadImage("bike_no_pedals.png");
+    field.loadImage("field.jpg");
     
     bodyColor=ofColor(239, 200, 200);
     
@@ -38,6 +39,8 @@ void ofApp::setup(){
     orangeLightColor=ofColor(255,145,0, 50);
     greenLightColor=ofColor(0,255,0, 50);
     
+    
+    fieldXPosition=0;
     
 }
 
@@ -77,6 +80,7 @@ void ofApp::update(){
         redLightColor.a=50;
         orangeLightColor.a=50;
         greenLightColor.a=255;
+        fieldXPosition-=1;
         bikerOrigin.x+=speed;
         speed+=0.05;
         zerotopi+=0.05;
@@ -93,6 +97,7 @@ void ofApp::update(){
         kneeLPosition.y+=-cos(zerotopi);
     }
     
+    if(play==false){speed=0;}
     
     if(bikerOrigin.x>=endX-200){
         greenLightColor.a=50;
@@ -101,16 +106,23 @@ void ofApp::update(){
     if(bikerOrigin.x>=endX){
         orangeLightColor.a=50;
         redLightColor.a=255;
+        speed=0;
+    }
+    if(fieldXPosition<=-field.width+1024){
+        fieldXPosition=0;
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
     
+    ofSetColor(255);
+    field.draw(fieldXPosition,0);
+    
+    ofSetColor(0);
     ofDrawBitmapString("Speed: "+ofToString(speed), ofPoint(5,20));
     ofDrawBitmapString("px/frame", ofPoint(120, 20));
     
-    ofSetColor(0);
     ofRect(trafficLightPos.x, trafficLightPos.y, 80, 220);
     ofSetColor(redLightColor);
     ofCircle(trafficLightPos.x+40, trafficLightPos.y+40, 30);
@@ -125,8 +137,12 @@ void ofApp::draw(){
     
     
     //floor
+    ofSetColor(100);
+    ofRect(0, 555, ofGetWidth(),ofGetHeight()-555);
+    
+    //traffic pole
     ofSetColor(0);
-    ofRect(0, 555, ofGetWidth(),10);
+    ofLine(trafficLightPos.x+40, trafficLightPos.y+220, trafficLightPos.x+40, 555);
 
 
     //leftarm
